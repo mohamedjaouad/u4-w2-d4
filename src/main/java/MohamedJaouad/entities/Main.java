@@ -54,7 +54,7 @@ public class Main {
         Map<Customer,List<Order>> orderByCustomer = orders.stream()
                 .collect(Collectors.groupingBy(Order::getCustomer));
         orderByCustomer.forEach((customer, customerOrders) ->
-                System.out.println("\nCliente: " + customer.getName() + " \nOrdini: " + customerOrders));
+                System.out.println("\ncliente: " + customer.getName() + " \nordini: " + customerOrders));
 
         Map<Customer, Double> totCustomer = orders.stream()
                 .collect(Collectors.groupingBy(
@@ -62,7 +62,7 @@ public class Main {
                         Collectors.summingDouble(Order::calcTotal)
                 ));
         totCustomer.forEach((customer, total) ->
-                System.out.println("Cliente: " + customer.getName() + "  Totale: " + total));
+                System.out.println("cliente: " + customer.getName() + "  totale: " + total));
 
         List<Product> mostExProduct = products.stream()
                 .sorted(Comparator.comparing(Product::getPrice).reversed())
@@ -70,10 +70,10 @@ public class Main {
                 .toList();
         mostExProduct.forEach(System.out::println);
 
-        double averageOrderAmount = orders.stream()
+        double averageOrder= orders.stream()
                 .collect(Collectors.averagingDouble(Order::calcTotal));
 
-        System.out.println("\nMedia importi ordini: " + averageOrderAmount);
+        System.out.println("\nmedia importi ordini: " + averageOrder);
 
     }
 
